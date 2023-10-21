@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2165701041791370929}
   - component: {fileID: 4050659049729967941}
   - component: {fileID: 3494256614882007651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: aeinn
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6176021886290369528}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b115adc499d8c344fbf6e92c25823bcf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -128,9 +128,9 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.76, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &4050659049729967941
 Rigidbody2D:
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b115adc499d8c344fbf6e92c25823bcf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -171,4 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faed4926eab1c4209b5efd9089aa516d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 25
+  jumpForce: 10
+  gravity: 10

@@ -15,7 +15,11 @@ public class Movement : MonoBehaviour
     public float jumpForce = 5f;
     public bool grounded {get; private set;}
     public bool jumping {get; private set;}
+
     public float gravity = 10f;
+
+
+
 
     
 
@@ -32,6 +36,8 @@ public class Movement : MonoBehaviour
             VerticalMovement();
         }
         ApplyGravity();
+        
+        
         
     }
 
@@ -59,9 +65,15 @@ public class Movement : MonoBehaviour
         velocity.y= Mathf.Max(velocity.y, 0f);
         jumping = velocity.y > 0f;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && grounded)
         {
-            if (!col.Raycast(Vector2.up))
+
+
+            if (col.Raycast(Vector2.up))
+            {
+                velocity.y = 0f;
+            }
+            else
             {
                 velocity.y = jumpForce;
                 jumping = true;

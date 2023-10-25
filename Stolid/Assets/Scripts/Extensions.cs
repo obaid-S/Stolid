@@ -17,4 +17,4 @@ public static class Extensions
         return Vector2.Dot(direction.normalized, testdirection) > 0.3f;
 
     }
-} 
+}

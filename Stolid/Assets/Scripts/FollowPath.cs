@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FollowPath : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class FollowPath : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetButton("Horizontal") || Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Transform player = GameObject.FindWithTag("Player").transform;
             CreateDupe(player);
@@ -19,7 +20,9 @@ public class FollowPath : MonoBehaviour
 
     public void CreateDupe(Transform player)
     {
-        GameObject red = Instantiate(redOrig, new Vector3(player.position.x, player.position.y, player.position.z), redOrig.transform.rotation);
+
+        GameObject red = Instantiate(redOrig, new Vector3(player.position.x, player.position.y - 1.25f, player.position.z), redOrig.transform.rotation);
     }
 
 }
+

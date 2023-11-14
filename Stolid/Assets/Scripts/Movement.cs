@@ -9,16 +9,26 @@ public class Movement : MonoBehaviour
 
     private Vector2 velocity;
     private float inputAxis;
+    public float moveSpeed = 25f;
+ 
+    
 
-    public float moveSpeed = 15f;
-
-    public float jumpForce = 5f;
+    public float jumpForce = 30f;
     public bool grounded {get; private set;}
     public bool jumping {get; private set;}
 
-    public float gravity = 10f;
+    //delay accepted b4 jump input
+    public float jumpDelay = 1f;
+    private float jumpDelayCounter =10f;
 
+    //delay accepted b4 jump buffer
+    public float jumpBuffer = 1f;
+    private float jumpBufferCounter = 0f;
 
+    public float gravity = 100f;
+    public float multi = 2f;
+
+    private bool falling;
 
 
     
@@ -30,11 +40,18 @@ public class Movement : MonoBehaviour
     
     private void Update(){
         grounded= col.Raycast(Vector2.down);
+        jumpDelayCounter = grounded ? jumpDelay : (jumpDelayCounter -= Time.deltaTime);
+
+        jumpBufferCounter = Input.GetButtonDown("Jump")? jumpBuffer:(jumpBufferCounter-=Time.deltaTime);
+
         HorizontalMovement();
-        if (grounded)
+
+        if (jumpDelayCounter>0f)
         {
             VerticalMovement();
         }
+        
+
         ApplyGravity();
         
         
@@ -42,34 +59,23 @@ public class Movement : MonoBehaviour
     }
 
     private void HorizontalMovement(){
-        inputAxis= Input.GetAxis("Horizontal");
+        inputAxis = Input.GetAxis("Horizontal");
+        velocity.x = Mathf.MoveTowards(velocity.x,inputAxis*moveSpeed,moveSpeed*Time.deltaTime*10);
+        
 
-        velocity.x=inputAxis*moveSpeed;
-        if (velocity.x > 0f)
+        if (col.Raycast(Vector2.right * velocity.x))//checks for object in dir of velocity
         {
-            transform.eulerAngles = Vector3.zero;
-        }
-        else if (velocity.x < 0f)
-        {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }
-
-        if (col.Raycast(Vector2.right * velocity.x))
-        {
-            velocity.x = 0f;
+            velocity.x = Mathf.MoveTowards(velocity.x,0, moveSpeed * Time.deltaTime * 10);
         }
     }
 
     private void VerticalMovement()
     {
-        velocity.y= Mathf.Max(velocity.y, 0f);
         jumping = velocity.y > 0f;
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (jumpDelayCounter>0f && jumpBufferCounter>0f)
         {
-
-
-            if (col.Raycast(Vector2.up))
+            if (col.Raycast(Vector2.up))//checks for something above player
             {
                 velocity.y = 0f;
             }
@@ -77,9 +83,16 @@ public class Movement : MonoBehaviour
             {
                 velocity.y = jumpForce;
                 jumping = true;
+                jumpBufferCounter = 0f;
             }
-            
         }
+        if (Input.GetButtonUp("Jump"))
+        {
+            jumpDelayCounter = 0f;
+        }
+        
+        
+        
 
         
     }
@@ -87,11 +100,12 @@ public class Movement : MonoBehaviour
     private void ApplyGravity()
     {
         //if velocity is negative OR if the jump button isnt being held, second part is to make jump last logner if held
-        bool falling = velocity.y < 0f || !Input.GetButton("Jump");
+        velocity.y = grounded? Mathf.Max(velocity.y, 0f) : Mathf.Max(velocity.y, -40f); //stops gravity from being built up
+        falling = velocity.y < 0f || !Input.GetButton("Jump");
 
-        float multiplier = falling ? 2f : 1f;
+        float multiplier = falling ? multi : 1f;
 
-        velocity.y -= gravity * Time.deltaTime * multiplier;
+        velocity.y -= gravity* Time.deltaTime * multiplier;
         
 
     }

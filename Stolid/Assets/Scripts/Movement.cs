@@ -15,7 +15,11 @@ public class Movement : MonoBehaviour
 
     public float jumpForce = 30f;
     public bool grounded {get; private set;}
+
     public bool jumping {get; private set;}
+    public bool running => Mathf.Abs(velocity.x) > 0.5f || Mathf.Abs(inputAxis)>0.5f;
+    public bool turning => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
+
 
     //delay accepted b4 jump input
     public float jumpDelay = 1f;

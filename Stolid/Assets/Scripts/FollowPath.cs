@@ -7,11 +7,12 @@ public class FollowPath : MonoBehaviour
 
     void Start()
     {
-        
+         
     }
     public void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        bool temp = false;//CHANGE TO TRUE TO SEE THE BUTTON PRESS
+        if (Input.GetButtonDown("Jump") && temp==true )
         {
             Transform player = GameObject.FindWithTag("Player").transform;
             CreateDupe(player);

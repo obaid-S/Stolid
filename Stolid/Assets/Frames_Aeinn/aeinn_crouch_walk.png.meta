@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9f7e3b053f17fb4b9c6b6467513a5ce
+guid: 896ad0e9fe90abf4386a2a3b61e3f76c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aeinn_running_0
+      name: aeinn_crouch_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f5c2701a9bbbcf47b6498f82b84ae3f
-      internalID: 2077322235
+      spriteID: a1f645a5d6c0511478fda523d4c0fbdf
+      internalID: 1693522921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aeinn_running_1
+      name: aeinn_crouch_walk_1
       rect:
         serializedVersion: 2
         x: 16
@@ -139,35 +139,14 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9789f384b69731c4c8b167faed3c93f8
-      internalID: 1004295788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: aeinn_running_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 882e9a4058d7e6e42a0ae13e320d34b2
-      internalID: -741767412
+      spriteID: 5dac1a55eb557d04987c066703a45ffa
+      internalID: 436402962
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      aeinn_running_0: 2077322235
-      aeinn_running_1: 1004295788
-      aeinn_running_2: -741767412
+      aeinn_crouch_walk_0: 1693522921
+      aeinn_crouch_walk_1: 436402962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -34,12 +35,16 @@ public class Movement : MonoBehaviour
 
     private bool falling;
 
+    private Animator playerAnimation;
+    public float timeSinceLastX;
+
 
     
 
     private void Awake(){
         rigidbody = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+        playerAnimation= GetComponent<Animator>();
     }
     
     private void Update(){
@@ -47,6 +52,8 @@ public class Movement : MonoBehaviour
         jumpDelayCounter = grounded ? jumpDelay : (jumpDelayCounter -= Time.deltaTime);
 
         jumpBufferCounter = Input.GetButtonDown("Jump")? jumpBuffer:(jumpBufferCounter-=Time.deltaTime);
+        
+        timeSinceLastX = Input.GetButton("Horizontal") ? 0 : ((timeSinceLastX>=5)?5:(timeSinceLastX+=Time.deltaTime));//time before idle animation plays
 
         HorizontalMovement();
 
@@ -54,19 +61,30 @@ public class Movement : MonoBehaviour
         {
             VerticalMovement();
         }
-        
 
+        //animations
+        playerAnimation.SetBool("grounded", grounded);
+        playerAnimation.SetFloat("ySpeed",velocity.y);
+        playerAnimation.SetFloat("speed", Mathf.Abs(velocity.x));
+        playerAnimation.SetFloat("sinceLastAcceleration", timeSinceLastX);
+
+        
         ApplyGravity();
-        
-        
-        
     }
 
     private void HorizontalMovement(){
         inputAxis = Input.GetAxis("Horizontal");
         velocity.x = Mathf.MoveTowards(velocity.x,inputAxis*moveSpeed,moveSpeed*Time.deltaTime*10);
         
+        if (velocity.x < 0)// changes char direction to velocity dir
+        {
+            transform.eulerAngles = new Vector3(0,180);
+        }
+        else if(velocity.x>0)
+        {
+            transform.eulerAngles = new Vector3(0,0);
 
+        }
         if (col.Raycast(Vector2.right * velocity.x))//checks for object in dir of velocity
         {
             velocity.x = Mathf.MoveTowards(velocity.x,0, moveSpeed * Time.deltaTime * 10);
@@ -127,7 +145,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))//ground collision
         {
             if (col.Raycast(Vector2.up))
             {

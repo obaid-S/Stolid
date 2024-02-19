@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9f7e3b053f17fb4b9c6b6467513a5ce
+guid: 5bf87fac7b4adb54fba05015b5b67972
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aeinn_running_0
+      name: aeinn_side_jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f5c2701a9bbbcf47b6498f82b84ae3f
-      internalID: 2077322235
+      spriteID: f1501821c34a1744c9fd3dfe2e3a4c44
+      internalID: -1502252783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aeinn_running_1
+      name: aeinn_side_jump_1
       rect:
         serializedVersion: 2
         x: 16
@@ -139,20 +139,20 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9789f384b69731c4c8b167faed3c93f8
-      internalID: 1004295788
+      spriteID: d59df59f25c899c42a20975077bb81cb
+      internalID: -507280354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aeinn_running_2
+      name: aeinn_side_jump_2
       rect:
         serializedVersion: 2
         x: 32
@@ -160,14 +160,14 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882e9a4058d7e6e42a0ae13e320d34b2
-      internalID: -741767412
+      spriteID: 3112203636116704eb2f1975a54ac0de
+      internalID: 1153095720
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      aeinn_running_0: 2077322235
-      aeinn_running_1: 1004295788
-      aeinn_running_2: -741767412
+      aeinn_side_jump_0: -1502252783
+      aeinn_side_jump_1: -507280354
+      aeinn_side_jump_2: 1153095720
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

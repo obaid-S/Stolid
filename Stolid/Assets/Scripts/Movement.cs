@@ -1,5 +1,6 @@
 
-using Unity.VisualScripting;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -7,7 +8,6 @@ public class Movement : MonoBehaviour
     
     private new Rigidbody2D rigidbody;
     private BoxCollider2D col;
-
     private Vector2 velocity;
     private float inputAxis;
     public float moveSpeed = 25f;
@@ -38,6 +38,16 @@ public class Movement : MonoBehaviour
     private Animator playerAnimation;
     public float timeSinceLastX;
 
+    public float leftSide;
+    public bool allowMove;
+
+    public float timeControlSpeed;
+    public float timeIncreaseSpeed;
+    public float timeResetSpeed;
+
+
+
+
 
     
 
@@ -52,21 +62,30 @@ public class Movement : MonoBehaviour
         jumpDelayCounter = grounded ? jumpDelay : (jumpDelayCounter -= Time.deltaTime);
 
         jumpBufferCounter = Input.GetButtonDown("Jump")? jumpBuffer:(jumpBufferCounter-=Time.deltaTime);
-        
+        timeControlSpeed=Input.GetButton("timeSpeed")?timeControlSpeed:Mathf.MoveTowards(timeControlSpeed,0,Time.deltaTime*timeResetSpeed);
         timeSinceLastX = Input.GetButton("Horizontal") ? 0 : ((timeSinceLastX>=5)?5:(timeSinceLastX+=Time.deltaTime));//time before idle animation plays
 
-        HorizontalMovement();
+        if (allowMove){
+            HorizontalMovement();
+            timeControl();
 
-        if (jumpDelayCounter>0f)
-        {
-            VerticalMovement();
+            if (jumpDelayCounter>0f)
+            {
+                VerticalMovement();
+            }
+            //animations
+            
+        }else{
+            velocity.x=0f;
         }
 
-        //animations
         playerAnimation.SetBool("grounded", grounded);
         playerAnimation.SetFloat("ySpeed",velocity.y);
         playerAnimation.SetFloat("speed", Mathf.Abs(velocity.x));
         playerAnimation.SetFloat("sinceLastAcceleration", timeSinceLastX);
+       
+
+        
 
         
         ApplyGravity();
@@ -136,7 +155,8 @@ public class Movement : MonoBehaviour
         Vector2 position = rigidbody.position;
         position += velocity*Time.fixedDeltaTime;
 
-        position.x=Mathf.Max(position.x,-1);
+        position.x = (float)Math.Clamp(position.x, leftSide, 14.5);
+        
 
         rigidbody.MovePosition(position);
 
@@ -152,6 +172,14 @@ public class Movement : MonoBehaviour
                 velocity.y = 0f;
             }
             
-        } 
+        }
+    }
+    private void timeControl(){
+
+        if(Input.GetButton("timeSpeed"))
+        {
+            timeControlSpeed+=Time.deltaTime*timeIncreaseSpeed*MathF.Sign(Input.GetAxis("timeSpeed"));
+        }
+        timeControlSpeed= Mathf.Clamp(timeControlSpeed,-1,1);
     }
 }

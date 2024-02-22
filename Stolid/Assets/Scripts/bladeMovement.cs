@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class bladeMovement : MonoBehaviour
 {
+    public Movement movement;
+    public clock_Interaction clockStatus;
     private new Transform transform;
-    public float speedMulti;
     private float pos;
     private bool goingUp;
     public float min;
     public float max;
-    
-    public Movement movement;
+    private float localSpeed;
+
     void Start(){
         transform=GetComponent<Transform>();
         pos=transform.position.y;
@@ -17,19 +18,25 @@ public class bladeMovement : MonoBehaviour
     }
     void Update()
     {
-        speedMulti= (float)(movement.timeControlSpeed>=0? (movement.timeControlSpeed*.95)+1 : 1-(Mathf.Abs(movement.timeControlSpeed)*.95)); //change the *num to change speed of time
+
+        localSpeed=clockStatus.animator.GetBool("pickedUp")?movement.speedMulti:1;
+        Debug.Log(localSpeed);
+        Debug.Log(clockStatus.animator.GetBool("pickedUp"));
         
-        if(pos<=min){
-            goingUp=true;
-        }else if (pos>=max){
-            goingUp=false;
-        }
+         if(pos<=min){
+             goingUp=true;
+         }else if (pos>=max){
+             goingUp=false;
+         }
 
         if (goingUp){
-            pos=Mathf.Clamp(min, (float)(pos + (0.1 * speedMulti)), max);
-        }else{
-            pos=Mathf.Clamp(min, (float)(pos - (0.1 * speedMulti)), max);
-        }
+             pos=Mathf.Clamp(min, pos + (0.1f *localSpeed ), max);
+         }else{
+             pos=Mathf.Clamp(min, pos - (0.1f * localSpeed), max);
+         } 
+
+        
+        
         
 
         transform.position= new Vector2(transform.position.x,pos);

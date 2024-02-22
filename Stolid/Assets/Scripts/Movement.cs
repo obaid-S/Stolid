@@ -45,6 +45,7 @@ public class Movement : MonoBehaviour
     public float timeIncreaseSpeed;
     public float timeResetSpeed;
 
+    public float speedMulti;
 
 
 
@@ -87,7 +88,8 @@ public class Movement : MonoBehaviour
 
         
 
-        
+        speedMulti= timeControlSpeed>=0? (timeControlSpeed*.95f)+1 : 1-(Mathf.Abs(timeControlSpeed)*.95f); //change the *num to change speed of time
+
         ApplyGravity();
     }
 

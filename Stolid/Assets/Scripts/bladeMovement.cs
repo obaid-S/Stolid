@@ -3,8 +3,8 @@ using UnityEngine;
 public class bladeMovement : MonoBehaviour
 {
     public Movement movement;
-    public clock_Interaction clockStatus;
     private new Transform transform;
+    public timeTutorial tt;
     private float pos;
     private bool goingUp;
     public float min;
@@ -14,14 +14,13 @@ public class bladeMovement : MonoBehaviour
     void Start(){
         transform=GetComponent<Transform>();
         pos=transform.position.y;
+        tt.setEnabled(false);
 
     }
     void Update()
     {
 
-        localSpeed=clockStatus.animator.GetBool("pickedUp")?movement.speedMulti:1;
-        Debug.Log(localSpeed);
-        Debug.Log(clockStatus.animator.GetBool("pickedUp"));
+        localSpeed=movement.power?movement.speedMulti:1;
         
          if(pos<=min){
              goingUp=true;
@@ -34,10 +33,6 @@ public class bladeMovement : MonoBehaviour
          }else{
              pos=Mathf.Clamp(min, pos - (0.1f * localSpeed), max);
          } 
-
-        
-        
-        
 
         transform.position= new Vector2(transform.position.x,pos);
     }

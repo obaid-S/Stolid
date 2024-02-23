@@ -46,6 +46,9 @@ public class Movement : MonoBehaviour
     public float timeResetSpeed;
 
     public float speedMulti;
+    public bool power;
+
+
 
 
 
@@ -74,11 +77,11 @@ public class Movement : MonoBehaviour
             {
                 VerticalMovement();
             }
-            //animations
             
         }else{
             velocity.x=0f;
         }
+        //animations
 
         playerAnimation.SetBool("grounded", grounded);
         playerAnimation.SetFloat("ySpeed",velocity.y);
@@ -88,7 +91,7 @@ public class Movement : MonoBehaviour
 
         
 
-        speedMulti= timeControlSpeed>=0? (timeControlSpeed*.95f)+1 : 1-(Mathf.Abs(timeControlSpeed)*.95f); //change the *num to change speed of time
+        speedMulti= timeControlSpeed>=0? (timeControlSpeed*1f)+1 : 1-(Mathf.Abs(timeControlSpeed)*.95f); //change the *num to change speed of time
 
         ApplyGravity();
     }

@@ -26,11 +26,11 @@ public class txt : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Submit")){
-            if (textComponent.text==lines[index]){
+            if (textComponent.text==(lines[index]+"\n\n(Press ENTER To Continue)")){
                 NextLine();
             }else{
                 StopAllCoroutines();
-                textComponent.text=lines[index];
+                textComponent.text=lines[index]+"\n\n(Press ENTER To Continue)";
             }
         }
 
@@ -46,7 +46,7 @@ public class txt : MonoBehaviour
     }//rests txt starts
 
     IEnumerator Typeline(){//types one char at time
-        foreach(char c in lines[index].ToCharArray()){ 
+        foreach(char c in (lines[index]+"\n\n(Press ENTER To Continue)").ToCharArray()){ 
              textComponent.text+=c;
              yield return new WaitForSeconds(txtSpeed); 
         }

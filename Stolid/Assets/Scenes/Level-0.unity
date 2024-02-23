@@ -1133,8 +1133,8 @@ MonoBehaviour:
   lines:
   - '???: Next Agent!! Agent Nine!!'
   - 'A.Nine: Hello?'
-  - '???: Demonstrate your skill in #+_!@+..'
-  - 'A.Nine: What was that... i didnt understand.'
+  - '???: Recap your experience going through time.'
+  - 'A.Nine: I dont remember...'
   - '???: Another failed expirement... continue forward to the hole.'
   - 'A.Nine: W-wh.. okay?'
   imgBox: {fileID: 2074133628}
@@ -1917,6 +1917,10 @@ PrefabInstance:
     - target: {fileID: 3494256614882007651, guid: d0402e1b5245e4afeb1f84e56885bd3e, type: 3}
       propertyPath: leftSide
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494256614882007651, guid: d0402e1b5245e4afeb1f84e56885bd3e, type: 3}
+      propertyPath: allowMove
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6176021886290369528, guid: d0402e1b5245e4afeb1f84e56885bd3e, type: 3}
       propertyPath: m_Name

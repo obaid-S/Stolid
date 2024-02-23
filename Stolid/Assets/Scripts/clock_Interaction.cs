@@ -1,9 +1,11 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class clock_Interaction : MonoBehaviour
 {
     private new Transform transform;
+    public timeTutorial tt;
     public  Movement movement;
     private Vector2 temp=new Vector2(1,1);
     public Vector2 endLocation;
@@ -12,6 +14,7 @@ public class clock_Interaction : MonoBehaviour
     void Update()
     {
         animator.SetFloat("timeControlSpeed",movement.speedMulti);
+        
     }
 
     public void startClock(){
@@ -27,7 +30,9 @@ public class clock_Interaction : MonoBehaviour
             yield return null;
         }
         animator.SetBool("pickedUp",true);
-
+        movement.power=true;
+        tt.setEnabled(true);
+        tt.startAnim();
     }
 }
 

@@ -14,6 +14,10 @@ public class clock_Interaction : MonoBehaviour
     void Update()
     {
         animator.SetFloat("timeControlSpeed",movement.speedMulti);
+        if( movement.power ){
+            animator.SetBool("pickedUp",true);
+        }
+
         
     }
 
@@ -29,7 +33,6 @@ public class clock_Interaction : MonoBehaviour
             transform.position=Vector2.MoveTowards(transform.position,endLocation,0.03f);
             yield return null;
         }
-        animator.SetBool("pickedUp",true);
         movement.power=true;
         tt.setEnabled(true);
         tt.startAnim();

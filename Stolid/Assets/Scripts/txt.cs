@@ -9,17 +9,18 @@ using UnityEngine.Events;
 public class txt : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
+    public Movement movement;
+
+    private string[] lines;
     public Image imgBox;
-    public Sprite[] chars;
+    private Sprite[] chars;
     public float txtSpeed;
     public GameObject box;
 
 
     private int index;
-    private int indexPic;
 
-    public UnityEvent afterTxt;
+    private UnityEvent afterTxt;
     
 
     // Update is called once per frame
@@ -36,11 +37,15 @@ public class txt : MonoBehaviour
 
     }
 
-    public void startTxt(){
+    public void startTxt(string[]givenLines, Sprite[]givenChars, UnityEvent givenAfterTxt){
+        movement.allowMove=false;
+        lines=givenLines;
+        chars=givenChars;
+        afterTxt=givenAfterTxt;
+
         box.SetActive(true);
         index=0; 
-        indexPic=0;
-        imgBox.sprite=chars[indexPic];
+        imgBox.sprite=chars[index];
         textComponent.text=string.Empty;
         StartCoroutine(Typeline());
     }//rests txt starts
@@ -54,18 +59,16 @@ public class txt : MonoBehaviour
     
     void NextLine(){//checks if all lines r shown, dispaers if yes
         if(index < lines.Length -1){
-            indexPic = indexPic==0 ? 1:0;
             index++;
             textComponent.text=string.Empty;
-            imgBox.sprite=chars[indexPic];
+            imgBox.sprite=chars[index];
             StartCoroutine(Typeline());
         }else{
             box.SetActive(false);
+            movement.allowMove=true;
             afterTxt.Invoke();
             
         }
     }
-
-    
 
 }

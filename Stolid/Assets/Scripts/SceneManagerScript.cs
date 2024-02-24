@@ -4,17 +4,21 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     public Animator animator;
-    private string lvl;
+    public Animator fadeAnimat;
+    public string lvl;
 
-    public void loadScene(string sceneName)
+    public void loadScene()
     {
-        lvl=sceneName;
-        animator.SetTrigger("fadeIn");  //fades screen to black 
+        animator.SetBool("fadeIn",true);  //fades screen to black 
+    }
+    public void fadeTxt(){
+        fadeAnimat.SetBool("play",true);
     }
 
     public void nextLevel(){//called when animation ends
-        animator.SetTrigger("fadeOut");
+        fadeAnimat.SetBool("play",false);
         SceneManager.LoadScene(lvl);
+        animator.SetBool("fadeIn",false);
     }
 
     

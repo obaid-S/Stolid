@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class arrow : MonoBehaviour
+public class rock : MonoBehaviour
 {
+    
     public UnityEvent hit;
-    public shooter shooter;    
+    public GameObject dustPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +21,16 @@ public class arrow : MonoBehaviour
         if(collider.gameObject.name=="aeinn"){
             hit.Invoke();
             Destroy(gameObject);
-            shooter.kills++;
+        }else if(collider.gameObject.name=="block_two (3)"){
+
+            var dust=Instantiate(dustPrefab,gameObject.GetComponent<Transform>().position,gameObject.GetComponent<Transform>().rotation);
+            dust.SetActive(true);
+
+
+            Destroy(gameObject);
         }
 
+        
     }
-    
+
 }

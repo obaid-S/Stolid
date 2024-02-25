@@ -9,6 +9,7 @@ public class callTxt : MonoBehaviour
     public UnityEvent givenAfterTxt;
 
     public void callStart(){
+        
         text.startTxt(givenLines,givenChars,givenAfterTxt);
     }
 }

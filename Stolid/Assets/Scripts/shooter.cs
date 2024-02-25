@@ -2,28 +2,44 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class shooter : MonoBehaviour
 {
-    public GameObject arrowPrefab;
-    public Transform location;
-    public float arrowSpeed;
+    public GameObject objPrefab;
     public Movement movement;
+    public Transform location;
+    public Vector2 objSpeed;
+
+
+    
+    public float kills;
+    public UnityEvent firstKill;
+
+
+
+    void Update(){
+
+        if (kills<100 && kills>0){
+            firstKill.Invoke();
+            kills=101;
+        }
+    }
 
     public void fire(){
-        var arrow= Instantiate(arrowPrefab, location.position,location.rotation);
-        arrow.SetActive(true);
-        arrow.GetComponent<Rigidbody2D>().velocity=new Vector2 (-arrowSpeed* (2*movement.speedMulti),0f);
-        
-        StartCoroutine(updateSpeed(arrow));
+        var obj= Instantiate(objPrefab, location.position,location.rotation);
+        obj.SetActive(true);
+
+        StartCoroutine(updateSpeed(obj));
         
             
     }
-    IEnumerator updateSpeed(GameObject arrow){
-        while(arrow!=null){
-            arrow.GetComponent<Rigidbody2D>().velocity=new Vector2 (-arrowSpeed* (2*movement.speedMulti),0f);
+
+    IEnumerator updateSpeed(GameObject obj){
+        while(obj!=null){
+            
+            obj.GetComponent<Rigidbody2D>().velocity=objSpeed*movement.speedMulti;
             yield return new WaitForSeconds(0.2f);
-            Debug.Log(Time.frameCount);
         }
     }
 }

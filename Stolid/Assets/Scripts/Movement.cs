@@ -53,6 +53,8 @@ public class Movement : MonoBehaviour
 
 
 
+
+
     
 
     private void Awake(){
@@ -88,7 +90,7 @@ public class Movement : MonoBehaviour
         playerAnimation.SetFloat("speed", Mathf.Abs(velocity.x));
         playerAnimation.SetFloat("sinceLastAcceleration", timeSinceLastX);
        
-
+        
         
 
         speedMulti= timeControlSpeed>=0? (timeControlSpeed*1f)+1 : 1-(Mathf.Abs(timeControlSpeed)*.95f); //change the *num to change speed of time

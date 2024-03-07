@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class pressureSensor : MonoBehaviour
@@ -32,25 +29,28 @@ public class pressureSensor : MonoBehaviour
    
 
     IEnumerator waitForTxt(){
-        yield return new WaitForSeconds(1f );
+        yield return new WaitForSeconds(1f);
         ct.callStart();
 
     }
     IEnumerator waitForBullet(){
         shooter.fire();
-        yield return new WaitForSeconds(5-(2*movement.speedMulti));
+        yield return new WaitForSeconds(3.2f-(1.5f*movement.speedMulti));
         newBullet=true;
 
     }
     
 
-    void OnCollisionEnter2D(){
-        startShoot=true;
-        newBullet=true;
+    void OnTriggerEnter2D(Collider2D collider){
+        if (collider.gameObject.name != "block_two (3)"){
+            startShoot=true;
+            newBullet=true;
+        }
+        
 
         
     }
-    void OnCollisionExit2D(){
+    void OnTriggerExit2D(){
         startShoot=false;
     }
 }

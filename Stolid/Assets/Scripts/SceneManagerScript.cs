@@ -5,11 +5,14 @@ public class SceneManagerScript : MonoBehaviour
 {
     public Animator animator;
     public Animator fadeAnimat;
+    public Movement movement;
     public string lvl;
 
     public void loadScene()
     {
         animator.SetBool("fadeIn",true);  //fades screen to black 
+        movement.allowMove=false;
+        
     }
     public void fadeTxt(){
         fadeAnimat.SetBool("play",true);

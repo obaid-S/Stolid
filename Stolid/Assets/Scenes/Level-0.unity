@@ -181,8 +181,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
-  m_Color: {r: 0.9433962, g: 0.031149892, b: 0.031149892, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3953d9825d06a4565acfc6fda1222e08, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1043,11 +1043,11 @@ MonoBehaviour:
   - '???: Another failed experiment, continue to the scrapyard.'
   - 'A.Nine: o-okay...'
   givenChars:
-  - {fileID: 1317563606, guid: 3a086b85613851c45a3cb3cf8eeeb13e, type: 3}
+  - {fileID: 21300000, guid: 3953d9825d06a4565acfc6fda1222e08, type: 3}
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
-  - {fileID: 1317563606, guid: 3a086b85613851c45a3cb3cf8eeeb13e, type: 3}
+  - {fileID: 21300000, guid: 3953d9825d06a4565acfc6fda1222e08, type: 3}
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
-  - {fileID: 1317563606, guid: 3a086b85613851c45a3cb3cf8eeeb13e, type: 3}
+  - {fileID: 21300000, guid: 3953d9825d06a4565acfc6fda1222e08, type: 3}
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
   givenAfterTxt:
     m_PersistentCalls:
@@ -1433,12 +1433,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c9a422f42898340ebb5109dd92594684, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bc81b3da7c614d31a16fc556b917973, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 20, y: 11.25}
+  m_Size: {x: 3.2, y: 1.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1458,6 +1458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1873753432}
   fadeAnimat: {fileID: 1817342563}
+  movement: {fileID: 0}
   lvl: Level-1
 --- !u!4 &1835849177 stripped
 Transform:
@@ -1576,6 +1577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1873753432}
   fadeAnimat: {fileID: 1817342563}
+  movement: {fileID: 8078660112301283626}
   lvl: Level-1
 --- !u!1 &1931482054
 GameObject:

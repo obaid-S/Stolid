@@ -13,16 +13,22 @@ public class shooter : MonoBehaviour
 
 
     
-    public float kills;
+    public float eventKills;
     public UnityEvent firstKill;
+    public UnityEvent secKill;
+
 
 
 
     void Update(){
 
-        if (kills<100 && kills>0){
+        if (eventKills==1){
             firstKill.Invoke();
-            kills=101;
+            eventKills++;
+        }else if (eventKills==3){
+            movement.allowMove=false;
+            StartCoroutine(waitSec());
+            eventKills++;
         }
     }
 
@@ -41,5 +47,10 @@ public class shooter : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().velocity=objSpeed*movement.speedMulti;
             yield return new WaitForSeconds(0.2f);
         }
+
+    }
+    IEnumerator waitSec(){
+        yield return new WaitForSeconds(1f);
+        secKill.Invoke();
     }
 }

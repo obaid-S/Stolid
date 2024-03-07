@@ -18,8 +18,8 @@ public class tpMachine : MonoBehaviour
     
     void OnCollisionEnter2D(){
         if(powered){
-            fade.loadScene();
             animator.SetBool("hasPower",powered);
+            fade.loadScene();
 
         }
     }

@@ -30,11 +30,7 @@ public class boulder : MonoBehaviour
     }
 
     void Update(){
-        if (drop & !dropped){
-            StopAllCoroutines();
-            dropRocks();
-
-        }else if(Input.GetKeyUp("i") & !dropped){
+        if(Input.GetKeyUp("i") & !dropped){
             shootNow=false;
             StopAllCoroutines();
             StartCoroutine(test());
@@ -56,6 +52,7 @@ public class boulder : MonoBehaviour
     }
 
     public void dropRocks(){
+        StopAllCoroutines();
         dropped=true;
         StartCoroutine(dropBoulder());
 
@@ -86,5 +83,5 @@ public class boulder : MonoBehaviour
         dropped=true;
             
     }
-
+  
 }

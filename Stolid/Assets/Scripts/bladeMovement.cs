@@ -4,7 +4,6 @@ public class bladeMovement : MonoBehaviour
 {
     public Movement movement;
     private new Transform transform;
-    public timeTutorial tt;
     private float pos;
     private bool goingUp;
     public float min;
@@ -14,7 +13,6 @@ public class bladeMovement : MonoBehaviour
     void Start(){
         transform=GetComponent<Transform>();
         pos=transform.position.y;
-        tt.setEnabled(false);
 
     }
     void Update()

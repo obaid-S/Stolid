@@ -53,4 +53,7 @@ public class shooter : MonoBehaviour
         yield return new WaitForSeconds(1f);
         secKill.Invoke();
     }
+    public void changeKillsThree(){
+        eventKills=3;
+    }
 }

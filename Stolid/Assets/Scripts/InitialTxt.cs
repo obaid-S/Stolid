@@ -6,6 +6,7 @@ public class InitialTxt : MonoBehaviour
 {
     public callTxt ct;
     public Movement movement;
+    public float secs=1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class InitialTxt : MonoBehaviour
 
     // Update is called once per frame
     IEnumerator waitForTxt(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(secs);
         ct.callStart();
 
     }

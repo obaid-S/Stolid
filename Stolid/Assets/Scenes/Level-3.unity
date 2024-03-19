@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1796738082, guid: 7790fb8c31d04442ab2e0a49d8365e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 834fec41b6f2c441a98e391c80a92542, type: 3}
+      objectReference: {fileID: 21300000, guid: ae604337fdd4c4fd8be39a4ac177e415, type: 3}
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 528736999}
   - component: {fileID: 528737000}
   m_Layer: 0
-  m_Name: angerBG
+  m_Name: depression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,8 +858,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1911723350}
   fadeAnimat: {fileID: 528736999}
-  movement: {fileID: 0}
-  lvl: Level-3
+  movement: {fileID: 398001120}
+  lvl: Level-4
 --- !u!212 &528737001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c9a422f42898340ebb5109dd92594684, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c70c1e0be71c4981b15ca2d9ab2fc39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -909,7 +909,7 @@ SpriteRenderer:
   m_Size: {x: 20, y: 11.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &528737002
@@ -1253,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 834fec41b6f2c441a98e391c80a92542, type: 3}
+      objectReference: {fileID: 21300000, guid: ae604337fdd4c4fd8be39a4ac177e415, type: 3}
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1343,7 +1343,7 @@ PrefabInstance:
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 834fec41b6f2c441a98e391c80a92542, type: 3}
+      objectReference: {fileID: 21300000, guid: ae604337fdd4c4fd8be39a4ac177e415, type: 3}
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1410,7 +1410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1796738082, guid: 7790fb8c31d04442ab2e0a49d8365e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1514,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 834fec41b6f2c441a98e391c80a92542, type: 3}
+      objectReference: {fileID: 21300000, guid: ae604337fdd4c4fd8be39a4ac177e415, type: 3}
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1600,7 +1600,7 @@ PrefabInstance:
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 834fec41b6f2c441a98e391c80a92542, type: 3}
+      objectReference: {fileID: 21300000, guid: ae604337fdd4c4fd8be39a4ac177e415, type: 3}
     - target: {fileID: 4259474342135816152, guid: 7b3e9437f91ed46369854673319831a3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1673,8 +1673,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c89c2f3d1d15e410283fa35608a59e3c, type: 3}
-  m_Color: {r: 1, g: 0.7783019, b: 0.7783019, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 397e50cfa9e1143dc9ee76b5164bcb70, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1875,6 +1875,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3252307667513715627, guid: c9097fce28f8c4791aa38fcfb95671f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f0ff835d619f3472bbe6f93b706f20f4, type: 3}
     - target: {fileID: 3921457909958096659, guid: c9097fce28f8c4791aa38fcfb95671f6, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2027,6 +2031,7 @@ MonoBehaviour:
   movement: {fileID: 398001120}
   min: -5
   max: 4
+  droping: 0
 --- !u!1 &1335029187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,7 +2358,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1335029190}
   m_PlaneDistance: 1
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -2587,7 +2592,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1796738082, guid: 7790fb8c31d04442ab2e0a49d8365e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2657,8 +2662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1911723350}
   fadeAnimat: {fileID: 528736999}
-  movement: {fileID: 0}
-  lvl: Level-3
+  movement: {fileID: 398001120}
+  lvl: Level-4
 --- !u!95 &1911723350
 Animator:
   serializedVersion: 5
@@ -2800,7 +2805,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1796738082, guid: 7790fb8c31d04442ab2e0a49d8365e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

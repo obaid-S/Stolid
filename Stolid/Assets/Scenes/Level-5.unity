@@ -946,7 +946,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1931482056}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1212,7 +1212,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817342561}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1441,14 +1441,16 @@ MonoBehaviour:
   givenLines:
   - 'A.Nine: YES, the teleported didnt break this time, I am learning to control
     it. Wait this place, it looks... familiar.'
-  - '???: Ok good im done with all the testers for today.'
+  - '???: Ok good im done with all the tests for today.'
   - 'A.Nine: Is that the lady who told me I failed!?! '
   - 'A.Nine: IM GOING TO TELL HER SHE WAS WRONG-... no... she was right, I did fail
     the expirement.'
-  - 'A.Nine: I did fail.. and thats ok.'
+  - 'A.Nine: I did fail.. '
+  - 'A.Nine: and thats ok.'
   givenChars:
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
   - {fileID: 21300000, guid: 3953d9825d06a4565acfc6fda1222e08, type: 3}
+  - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
   - {fileID: 21300000, guid: 348bbd112bfcc47a6a01963f09f78bb4, type: 3}
   - {fileID: 21300000, guid: ecc5be07743a98c4784b53e51bb13c59, type: 3}

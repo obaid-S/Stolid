@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneManagerScript : MonoBehaviour
 {
@@ -11,11 +12,21 @@ public class SceneManagerScript : MonoBehaviour
     public void loadScene()
     {
         animator.SetBool("fadeIn",true);  //fades screen to black 
-        movement.allowMove=false;
+        try{
+            movement.allowMove=false;
+        }catch{
+            var buttons=GameObject.Find("buttons");
+            buttons.SetActive(false);
+        }
         
     }
     public void fadeTxt(){
-        fadeAnimat.SetBool("play",true);
+        try{
+            fadeAnimat.SetBool("play",true);
+        }catch{
+            SceneManager.LoadScene(lvl);
+            animator.SetBool("fadeIn",false);
+        }
     }
 
     public void nextLevel(){//called when animation ends

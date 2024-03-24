@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,17 +9,16 @@ public class SceneManagerScript : MonoBehaviour
     public Animator fadeAnimat;
     public Movement movement;
     public string lvl;
+    public static bool muted;
 
     public void loadScene()
     {
         animator.SetBool("fadeIn",true);  //fades screen to black 
         try{
+            GameObject.Find("pauseMenu").SetActive(false);
             movement.allowMove=false;
-        }catch{
-            var buttons=GameObject.Find("buttons");
-            buttons.SetActive(false);
-        }
-        
+        }catch{}
+
     }
     public void fadeTxt(){
         try{
@@ -26,7 +26,7 @@ public class SceneManagerScript : MonoBehaviour
         }catch{
             SceneManager.LoadScene(lvl);
             animator.SetBool("fadeIn",false);
-        }
+        } 
     }
 
     public void nextLevel(){//called when animation ends
@@ -35,9 +35,7 @@ public class SceneManagerScript : MonoBehaviour
         animator.SetBool("fadeIn",false);
     }
 
-    
-    
-    
-    
-    
+    public void changeMute(GameObject trigger){
+        muted=trigger.GetComponent<Toggle>().isOn;
+    }
 }

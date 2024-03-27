@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,8 +12,7 @@ public class Movement : MonoBehaviour
     private Vector2 velocity;
     private float inputAxis;
     public float moveSpeed = 25f;
- 
-    
+    public float temp;
 
     public float jumpForce = 30f;
     public bool grounded {get; private set;}
@@ -48,8 +48,10 @@ public class Movement : MonoBehaviour
     public float speedMulti;
     public bool power;
 
-
-
+    public AudioSource src;
+    public AudioClip run,jump;
+    public audioCaller audioCaller;
+    private bool playingAudio=false;
 
 
 
@@ -67,6 +69,7 @@ public class Movement : MonoBehaviour
         grounded= col.Raycast(Vector2.down);
         jumpDelayCounter = grounded ? jumpDelay : (jumpDelayCounter -= Time.deltaTime);
 
+        
         jumpBufferCounter = Input.GetButtonDown("Jump")? jumpBuffer:(jumpBufferCounter-=Time.deltaTime);
         timeControlSpeed=Input.GetButton("timeSpeed")?timeControlSpeed:Mathf.MoveTowards(timeControlSpeed,0,Time.deltaTime*timeResetSpeed);
         timeSinceLastX = Input.GetButton("Horizontal") ? 0 : ((timeSinceLastX>=5)?5:(timeSinceLastX+=Time.deltaTime));//time before idle animation plays
@@ -111,9 +114,14 @@ public class Movement : MonoBehaviour
             transform.eulerAngles = new Vector3(0,0);
 
         }
+
         if (col.Raycast(Vector2.right * velocity.x))//checks for object in dir of velocity
         {
             velocity.x = Mathf.MoveTowards(velocity.x,0, moveSpeed * Time.deltaTime * 10);
+        }
+
+        if(Input.GetButton("Horizontal") && !playingAudio){
+            StartCoroutine(PlayLooped());
         }
     }
 
@@ -137,6 +145,9 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             jumpDelayCounter = 0f;
+        }
+        if(Input.GetButtonDown("Jump")){
+            audioCaller.playClip(src,jump);
         }
         
         
@@ -188,5 +199,21 @@ public class Movement : MonoBehaviour
             timeControlSpeed+=Time.deltaTime*timeIncreaseSpeed*MathF.Sign(Input.GetAxis("timeSpeed"));
         }
         timeControlSpeed= Mathf.Clamp(timeControlSpeed,-1,1);
+    }
+
+
+    IEnumerator PlayLooped(){
+        while(Mathf.Abs(Input.GetAxis("Horizontal")) >.01){
+            while(Input.GetButton("Horizontal") && allowMove){
+                playingAudio=true;
+                audioCaller.playClip(src,run);
+
+                yield return new WaitForSeconds(temp);
+
+            }
+            yield return new WaitForSeconds(temp);
+        }
+        playingAudio=false;
+
     }
 }

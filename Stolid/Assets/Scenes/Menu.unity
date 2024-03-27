@@ -1082,7 +1082,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4460d11ad5ffc4e36b37e49ed783fe08, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1181,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   src: {fileID: 704096399}
+  audioLvl: 1
 --- !u!224 &876053347 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3592083380509628369, guid: c6fb28eb3512f4edf9c9c0871f088bc0, type: 3}

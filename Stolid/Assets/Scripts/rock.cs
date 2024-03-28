@@ -7,6 +7,11 @@ public class rock : MonoBehaviour
     public UnityEvent hit;
     public GameObject dustPrefab;
 
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +35,9 @@ public class rock : MonoBehaviour
             Destroy(gameObject);
         }
 
-        
+        try{
+            audioCaller.playClip(src,audioClip);
+        }catch{}
     }
 
 }

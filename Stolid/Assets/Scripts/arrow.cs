@@ -8,9 +8,15 @@ public class arrow : MonoBehaviour
 
     public shooter shooter;    
     public tpMachine tp;
+
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
     // Start is called before the first frame update
     void Start()
     {
+        audioCaller.playClip(src,audioClip);
         Destroy(gameObject, 20);
     }
 

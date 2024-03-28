@@ -13,20 +13,16 @@ public class boulder : MonoBehaviour
     public GameObject fallingBoulder;
     public GameObject fallingBoulderTwo;
     public GameObject dustPrefab;
-
     
 
-
-
-    
-
-    
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
 
     // Update is called once per frame
     void Start()
     {
         StartCoroutine(rockLoop());
-
     }
 
     void Update(){
@@ -60,7 +56,7 @@ public class boulder : MonoBehaviour
     }
     IEnumerator dropBoulder(){
         var temp=0;
-
+        audioCaller.playClip(src,audioClip);
         while(temp<130){
             fallingBoulder.transform.position=Vector2.MoveTowards(fallingBoulder.transform.position,new Vector2(5,4.4f),Time.deltaTime*Mathf.Pow(2,temp/15));
             if (temp%3==0 || temp>120){
@@ -71,6 +67,7 @@ public class boulder : MonoBehaviour
             yield return null;
 
         }
+
         while(temp<260){
             fallingBoulderTwo.transform.position=Vector2.MoveTowards(fallingBoulderTwo.transform.position,new Vector2(5,4f),Time.deltaTime*Mathf.Pow(2,(temp-90)/15));
             if (temp%3==0 || (temp-130)>120){

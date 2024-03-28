@@ -7,6 +7,8 @@ public class pauseMenu : MonoBehaviour
     public GameObject buttons;
     public Movement movement;
     public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
 
     private int ranTimes=0;
     private bool pauseScreenOpen=false;
@@ -16,6 +18,8 @@ public class pauseMenu : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             toggleMenu();
+            audioCaller.playClip(src,audioClip);
+
         }
     }
 

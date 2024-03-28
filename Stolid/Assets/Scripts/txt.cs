@@ -16,11 +16,14 @@ public class txt : MonoBehaviour
     private Sprite[] chars;
     public float txtSpeed;
     public GameObject box;
-
+    public audioCaller audioCaller;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     private int index;
 
     private UnityEvent afterTxt;
+
     
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class txt : MonoBehaviour
             if (textComponent.text==(lines[index]+"\n\n(Press ENTER To Continue)")){
                 NextLine();
             }else{
+                audioCaller.playClip(audioSource,audioClip);
                 StopAllCoroutines();
                 textComponent.text=lines[index]+"\n\n(Press ENTER To Continue)";
             }
@@ -53,6 +57,7 @@ public class txt : MonoBehaviour
     IEnumerator Typeline(){//types one char at time
         foreach(char c in (lines[index]+"\n\n(Press ENTER To Continue)").ToCharArray()){ 
              textComponent.text+=c;
+             audioCaller.playClip(audioSource,audioClip);
              yield return new WaitForSeconds(txtSpeed); 
         }
     }

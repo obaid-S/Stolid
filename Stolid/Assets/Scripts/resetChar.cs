@@ -9,7 +9,14 @@ public class resetChar : MonoBehaviour
     public Vector2 resetLocation;
     public Movement movement;
 
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
+
     public void startReset(){
+        audioCaller.playClip(src,audioClip);
+
         movement.allowMove=false;
         rigidbody=player.GetComponent<Rigidbody2D>();
         rigidbody.position=resetLocation;

@@ -12,6 +12,12 @@ public class tree : MonoBehaviour
     private BoxCollider2D col;
     private float temp=0;
     private int frame=0;
+
+    
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -30,12 +36,14 @@ public class tree : MonoBehaviour
                 if(temp<1){
                 temp+=1f*Time.deltaTime;
                 }else{
+                    audioCaller.playClip(src,audioClip);
                     frame++;
                     anim.SetInteger("frame",frame);
                     temp=0;
                     col.offset= new Vector2(0,col.offset.y+.4f);
                 }
             }
+            
         }
     }
     IEnumerator waitForTxt(){

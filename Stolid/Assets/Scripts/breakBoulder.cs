@@ -10,6 +10,11 @@ public class breakBoulder : MonoBehaviour
 
     public GameObject dmgPart;
     public Animator anim;
+
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
     
     // Start is called before the first frame update
     void Update(){
@@ -23,6 +28,9 @@ public class breakBoulder : MonoBehaviour
             anim.SetInteger("frame",0);
             Destroy(outerShell);
             Destroy(innerShell);
+            audioCaller.playClip(src,audioClip);
+
+
             
         }else{
             if (dmg%2==0){
@@ -34,7 +42,6 @@ public class breakBoulder : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collider){
         if(collider.gameObject.name=="arrow0(Clone)" & Input.GetKey("o")){
-            
             dmg--;
         }
     }

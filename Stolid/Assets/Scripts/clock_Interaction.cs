@@ -1,5 +1,6 @@
 using System.Collections;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class clock_Interaction : MonoBehaviour
@@ -17,6 +18,8 @@ public class clock_Interaction : MonoBehaviour
         if( movement.power ){
             animator.SetBool("pickedUp",true);
         }
+
+        
 
         
     }

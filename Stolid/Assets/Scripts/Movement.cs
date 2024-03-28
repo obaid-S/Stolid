@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
     public bool power;
 
     public AudioSource src;
-    public AudioClip run,jump;
+    public AudioClip run,jump,timeSdown,timeSup, pickUp;
     public audioCaller audioCaller;
     private bool playingAudio=false;
 
@@ -194,11 +194,23 @@ public class Movement : MonoBehaviour
     }
     private void timeControl(){
 
+        if(Input.GetButtonDown("timeSpeed")){
+            if(Input.GetAxis("timeSpeed")>0){
+                audioCaller.playClip(src,timeSup);
+            }else if(Input.GetAxis("timeSpeed")<0){
+                audioCaller.playClip(src,timeSdown);
+            }
+        }
         if(Input.GetButton("timeSpeed"))
         {
             timeControlSpeed+=Time.deltaTime*timeIncreaseSpeed*MathF.Sign(Input.GetAxis("timeSpeed"));
+            
         }
         timeControlSpeed= Mathf.Clamp(timeControlSpeed,-1,1);
+    }
+    
+    public void itemPickup(){
+        audioCaller.playClip(src,pickUp);
     }
 
 

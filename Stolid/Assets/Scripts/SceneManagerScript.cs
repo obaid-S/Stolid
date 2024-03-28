@@ -11,9 +11,15 @@ public class SceneManagerScript : MonoBehaviour
     public string lvl;
     public static bool muted;
 
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
+
     public void loadScene()
     {
         animator.SetBool("fadeIn",true);  //fades screen to black 
+        audioCaller.playClip(src,audioClip);
         try{
             GameObject.Find("pauseMenu").SetActive(false);
             movement.allowMove=false;

@@ -11,9 +11,18 @@ public class breakingIce : MonoBehaviour
     public bladeMovement bladeMovement;
     private float temp=0;
     private int frame=0;
+    private new Transform transform;
+
+
+
+    public audioCaller audioCaller;
+    public AudioSource src;
+    public AudioClip audioClip;
+    
     // Start is called before the first frame update
     void Start()
     {
+        transform=GetComponent<Transform>();
         movement.allowMove=false;
         StartCoroutine(waitForTxt());
     }
@@ -25,16 +34,20 @@ public class breakingIce : MonoBehaviour
         if(Input.GetKey("o")){
             if(frame<4){
                 if(temp<1){
-                temp+=1f*Time.deltaTime;
+                    temp+=1f*Time.deltaTime;
                 }else{
                     frame++;
                     anim.SetInteger("frame",frame);
                     temp=0;
                 }
-            }else{
+            }else if(frame==4){                
                 animTwo.SetBool("water",true);
                 bladeMovement.droping=true;
-                gameObject.SetActive(false);
+
+                audioCaller.playClip(src,audioClip);
+                transform.position=new Vector2(transform.position.x+100,transform.position.y);
+
+                frame=5;
             }
 
         }

@@ -11,9 +11,9 @@ public class powerSource : MonoBehaviour
     public UnityEvent change;
 
     void OnTriggerEnter2D(){
+        change.Invoke();
         gameObject.SetActive(false);
         tp.powered=true;
-        change.Invoke();
         resetChar.resetLocation=resetLocation;
 
 

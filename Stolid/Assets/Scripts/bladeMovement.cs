@@ -38,9 +38,9 @@ public class bladeMovement : MonoBehaviour
         }
 
         if (goingUp){
-            pos=Mathf.Clamp(min, pos + (0.1f *localSpeed ), max);
+            pos=Mathf.Clamp(min, pos + (localSpeed*2  *Time.deltaTime*10), max);
         }else{
-            pos=Mathf.Clamp(min, pos - (0.1f * localSpeed), max);
+            pos=Mathf.Clamp(min, pos - (localSpeed*2 *Time.deltaTime*10), max);
         } 
 
         transform.position= new Vector2(transform.position.x,pos);
